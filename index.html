@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
   Andrea Panaro
-  Assignment 7
-  practice using Validate plugin to manage error messages for user input.
+  Assignment 8
+  jquery widgets.
   sources: inclass examples, tips from classmates, https://www.w3schools.com, https://validatejs.org, https://www.sitepoint.com/basic-jquery-form-validation-tutorial
 -->
 <html>
@@ -34,24 +34,22 @@
         <div id = "userIP">
           <p> xBegin: </p> 
           <input type = "text" name= "xBegin" id = "xBegin" > 
-          <!-- <p>
-            <label for = "xRange">X range:</label>
-            <input type = "text" id = "x" 
-               style = "border:0; color:#b9cd6d; font-weight:bold;">
-         </p> -->
-          <div id="sliderXBegin"></div>
+          <div id="sliderXBegin" class="sliders" ></div>
           
           <p> xEnd: </p>
           <div id="sliderXEnd"></div>
           <input type = "text" name= "xEnd" id = "xEnd" > 
+          <div id="sliderXEnd" class="sliders" ></div>
           
           <p> yBegin: </p>
           <div id="sliderYBegin"></div>
           <input type = "text" name ="yBegin"  id = "yBegin" > 
+          <div id="sliderYBegin" class="sliders" ></div>
           
           <p> yEnd: </p>
           <div id="sliderYEnd"></div>
           <input type = "text" name = "yEnd" id = "yEnd" > 
+          <div id="sliderYEnd" class="sliders" ></div>
         
         </br>
         
@@ -100,25 +98,81 @@
         
          $(function() {
           //var xStart = parseInt(xBegin);
-            $( "#sliderXBegin" ).slider({
+          $( "#sliderXBegin" ).slider({
                //range:true,
                min: 1,
                max: 75,
               
                
-               //value: 1,
+               value: 1,
                slide: function( event, ui ) {
                   $( "#xBegin" ).val( ui.value );
+                  //$("#xEnd").val(ui.values[ 1 ]);
+               },
+               //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
+            });
+            $( "#sliderXEnd" ).slider({
+               //range:true,
+               min: 1,
+               max: 75,
+              
+               
+               value: 1,
+               slide: function( event, ui ) {
+                  $( "#xEnd" ).val( ui.value );
+                  //$("#xEnd").val(ui.values[ 1 ]);
+               },
+               //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
+            });
+            $( "#sliderYBegin" ).slider({
+               //range:true,
+               min: 1,
+               max: 75,
+              
+               
+               value: 1,
+               slide: function( event, ui ) {
+                  $( "#yBegin" ).val( ui.value );
                   //$("#xEnd").val(ui.values[ 1 ]);
                }
                //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
             });
+            $( "#sliderYEnd" ).slider({
+               //range:true,
+               min: 1,
+               max: 75,
+               value: 1,
+               slide: function( event, ui ) {
+                  $( "#yEnd" ).val( ui.value );
+                  //$("#xEnd").val(ui.values[ 1 ]);
+               }
+               //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
+            });
+               //xB: function( event, ui ) {
+               // ( "#xBegin" ).val( ui.value );
+               //},
+                
+               //yA: function( event, ui ) {
+               // $( "#yBegin" ).val( ui.value );
+               //},
+            
+           //    yB: function( event, ui ) {
+            //    $( "#yEnd" ).val( ui.value );
+             //  }
+               
+            });
+                  
+
+                  //$("#xEnd").val(ui.values[ 1 ]);
+          
+               //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
+            //});
          //
             //$( "#xBegin" ).val( $( "#sliderXBegin" ).slider( "value" ) );
             //$( "#xBegin" ).val( $( "#sliderXBegin" ).slider( "value", parseInt(xBegin)));
             //$( "#xEnd" ).val( $( "#sliderXBegin" ).slider( "values", 1 ));
             //   " - xEnd!" + $( "#sliderXBegin" ).slider( "values", 1 ) );
-         });
+        // });
       </script>
         </script>
     </body>

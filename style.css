@@ -10,7 +10,7 @@ body {
   color: #fff;
   margin: 0 auto 0 auto;}
   /* Responsive page rules at bottom of style sheet */
-  #sliderXBegin {
+  .sliders, #sliderXBegin, #sliderYBegin, #sliderXEnd, #sliderYEnd {
     margin-left: 33%;
     width: 33%;
   }
