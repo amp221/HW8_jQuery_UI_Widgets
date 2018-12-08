@@ -1,6 +1,16 @@
 //var aX = parseInt(document.getElementById("xBegin").value);
 //var bX = parseInt(document.getElementById("xEnd").value);
+$.validator.addMethod( "greaterThan", function( value, element, param ) {
+  var target = $( param );
 
+  if ( this.settings.onfocusout && target.not( ".validate-greaterThan-blur" ).length ) {
+      target.addClass( "validate-greaterThan-blur" ).on( "blur.validate-greaterThan", function() {
+          $( element ).valid();
+      } );
+  }
+  
+  return parseInt(value) > parseInt(target.val());
+}, "Please enter a greater value." );
 $(document).ready(function(){
 
     // $("form[name='input']").on('submit', function(event){

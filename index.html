@@ -17,7 +17,6 @@
     <script src=//cdn.jsdelivr.net/npm/jquery-validation@1.18.0/dist/additional-methods.min.js></script>
     <script src="js/form-validation.js"></script>
     <script src= "https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-
     <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -32,148 +31,46 @@
       <form id = "form_input" method="post" action= "" name= "input">
         <br>
         <div id = "userIP">
+         
           <p> xBegin: </p> 
           <input type = "text" name= "xBegin" id = "xBegin" > 
-          <div id="sliderXBegin" class="sliders" ></div>
+          <div id="sliderXBegin" class="slider" ></div>
           
           <p> xEnd: </p>
-          <div id="sliderXEnd"></div>
           <input type = "text" name= "xEnd" id = "xEnd" > 
-          <div id="sliderXEnd" class="sliders" ></div>
+          <div id="sliderXEnd" class="slider" ></div>
           
           <p> yBegin: </p>
-          <div id="sliderYBegin"></div>
           <input type = "text" name ="yBegin"  id = "yBegin" > 
-          <div id="sliderYBegin" class="sliders" ></div>
+          <div id="sliderYBegin" class="slider" ></div>
           
           <p> yEnd: </p>
-          <div id="sliderYEnd"></div>
           <input type = "text" name = "yEnd" id = "yEnd" > 
-          <div id="sliderYEnd" class="sliders" ></div>
+          <div id="sliderYEnd" class="slider" ></div>
         
         </br>
         
         <button id="submit_btn" type = "submit">Display</button>
         <button type = "button" onclick = "enterNew()">New Table</button> 
+        <button name="save" type="button">Save</button>
       </form>
     </div>
     <div id="target"></div>
-      <script src="js/script.js"></script>
-      <script>
-        /*$(function() {
-          $( "#sliderXBegin" ).slider();
-         
-        var sliderOpts = {
-          //min: 1,
-          //max: 75,
-          //step: 75,
-          animate: true,
-          values: [1, 75],
-          slide: function() {
-            var x = $( "#sliderXBegin" ).slider("values");
-          }
-        };
-          $("#sliderXBegin").slider(sliderOpts);
-        })(jQuery);*/
-        /*$(function(){
-          var sliderOpts = {
-          min:0,
-          max: 255,
-          value: 255,
-          slide: function() {
-            var r = $("#rSlider").slider("value"),
-                g = $("#gSlider").slider("value"),
-                b = $("#bSlider").slider("value");
-            var rgbString = ["rgb(", r, ",", g, ",", b, ")"]
-              .join("");
-              $("#colorBox").css({
-                backgroundColor: rgbString
-              });
-              $("#output").val(rgbString);
-            }
-          };
-        $("#rSlider, #gSlider, #bSlider").slider(sliderOpts);
-        })(jQuery);
-        */
-        
-         $(function() {
-          //var xStart = parseInt(xBegin);
-          $( "#sliderXBegin" ).slider({
-               //range:true,
-               min: 1,
-               max: 75,
-              
-               
-               value: 1,
-               slide: function( event, ui ) {
-                  $( "#xBegin" ).val( ui.value );
-                  //$("#xEnd").val(ui.values[ 1 ]);
-               },
-               //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
-            });
-            $( "#sliderXEnd" ).slider({
-               //range:true,
-               min: 1,
-               max: 75,
-              
-               
-               value: 1,
-               slide: function( event, ui ) {
-                  $( "#xEnd" ).val( ui.value );
-                  //$("#xEnd").val(ui.values[ 1 ]);
-               },
-               //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
-            });
-            $( "#sliderYBegin" ).slider({
-               //range:true,
-               min: 1,
-               max: 75,
-              
-               
-               value: 1,
-               slide: function( event, ui ) {
-                  $( "#yBegin" ).val( ui.value );
-                  //$("#xEnd").val(ui.values[ 1 ]);
-               }
-               //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
-            });
-            $( "#sliderYEnd" ).slider({
-               //range:true,
-               min: 1,
-               max: 75,
-               value: 1,
-               slide: function( event, ui ) {
-                  $( "#yEnd" ).val( ui.value );
-                  //$("#xEnd").val(ui.values[ 1 ]);
-               }
-               //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
-            });
-               //xB: function( event, ui ) {
-               // ( "#xBegin" ).val( ui.value );
-               //},
-                
-               //yA: function( event, ui ) {
-               // $( "#yBegin" ).val( ui.value );
-               //},
-            
-           //    yB: function( event, ui ) {
-            //    $( "#yEnd" ).val( ui.value );
-             //  }
-               
-            });
-                  
+    <div id="tabs" class="">
+      <ul>
+          <li class="selected">
+              <a href="#results">Results</a>
+          </li>
+      </ul>
+      <div id="results" class="panel">
+          <!-- Multiplication table is appended HERE by script.js -->
+          This is the first tab's content.
+      </div>
+      <!-- Additional Saved tables appended HERE -->
+  </div>
 
-                  //$("#xEnd").val(ui.values[ 1 ]);
-          
-               //$( '#sliderXBegin' ).slider( "value", parseInt( $( '#xBegin' ).val() ) ) ;
-            //});
-         //
-            //$( "#xBegin" ).val( $( "#sliderXBegin" ).slider( "value" ) );
-            //$( "#xBegin" ).val( $( "#sliderXBegin" ).slider( "value", parseInt(xBegin)));
-            //$( "#xEnd" ).val( $( "#sliderXBegin" ).slider( "values", 1 ));
-            //   " - xEnd!" + $( "#sliderXBegin" ).slider( "values", 1 ) );
-        // });
-      </script>
-        </script>
+      <script src="js/script.js"></script>
+
+   
     </body>
 </html>
